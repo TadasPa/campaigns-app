@@ -1,5 +1,5 @@
 export const PAGES = {
-    campaigns: '/campaigns',
     home: '/',
-    notFound: '404'
+    campaigns: '/campaigns',
+    notFound: '/404'
 }

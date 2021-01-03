@@ -8,7 +8,7 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route path={[PAGES.campaigns, PAGES.home]} exact={true}>
-        <Campaigns m={12} />
+        <Campaigns />
       </Route>
       <Route>
         <NotFound />
