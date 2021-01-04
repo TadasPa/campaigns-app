@@ -1,31 +1,35 @@
-import React, { FC, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { FC, useMemo } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { space, SpaceProps } from "styled-system";
-import { AnyAction } from "../../store";
-import { CampaignActionType } from "../../store/campaigns";
-import { Campaign } from "../../types/Campaign";
+import { FlexboxProps, space, SpaceProps } from "styled-system";
+import AddCampains from "../../components/AddCampaigns";
+import { FlexBox } from "../../components/Grid";
+import { getCampains } from "../../store/campaigns/selectors";
 
-interface ICampaigns extends SpaceProps {}
+export type ICampaigns = SpaceProps & FlexboxProps;
 
 const Campaigns: FC<ICampaigns> = ({ children, ...rest }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    window.AddCampaigns = (campaigns: Campaign[] = []) => {
-      dispatch<AnyAction<CampaignActionType, Campaign[]>>({
-        type: CampaignActionType.Add,
-        payload: campaigns,
-      });
-    };
-  }, [dispatch]);
+  const campaigns = useSelector(getCampains);
+  const rows = useMemo(() => {
+    return campaigns.map(({ name }, index) => (
+      <FlexBox key={index}>{name}</FlexBox>
+    ));
+  }, [campaigns]);
 
-  return <span {...rest}>campaigns page{children}</span>;
+  return (
+    <>
+      <AddCampains />
+      <FlexBox flexDirection="column" {...rest}>
+        {rows}
+      </FlexBox>
+    </>
+  );
 };
 
-export const CampaignsContainer: FC<ICampaigns> = styled(Campaigns)`
+export const StyledCampaigns: FC<ICampaigns> = styled(Campaigns)`
   padding: 10px;
 
   ${space}
 `;
 
-export default CampaignsContainer;
+export default StyledCampaigns;

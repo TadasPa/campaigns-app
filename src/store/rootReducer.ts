@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import campaignsReducer from './campaigns';
+import campaignsReducer from './campaigns/reducer';
 
 const rootReducer = combineReducers({
   campaigns: campaignsReducer,
