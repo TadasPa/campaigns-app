@@ -1,0 +1,1 @@
+export type ISetCallback<T> = (value: T) => void;
