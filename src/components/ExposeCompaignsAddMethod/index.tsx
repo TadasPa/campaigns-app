@@ -4,7 +4,7 @@ import { AnyAction } from "../../store";
 import { CampaignActionType } from "../../store/campaigns/reducer";
 import { Campaign } from "../../types/Campaign";
 
-const ExposeCompaignsAdd: FC = () => {
+const ExposeCompaignsAddMethod: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     window.AddCampaigns = (campaigns: Campaign[] = []) => {
@@ -15,7 +15,7 @@ const ExposeCompaignsAdd: FC = () => {
     };
   }, [dispatch]);
 
-  return <></>;
+  return null;
 };
 
-export default ExposeCompaignsAdd;
+export default ExposeCompaignsAddMethod;

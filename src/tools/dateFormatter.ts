@@ -1,5 +1,6 @@
 // probably would use lib like moment of datejs normaly
 // but for sake of simplicity and time saving parse manually
+// things like server/user times would need to be considered
 
 export const parseShortDate = (date: string) => { 
   const chunks = date.split("/");

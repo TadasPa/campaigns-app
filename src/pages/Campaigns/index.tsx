@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import DateRange from "../../components/DateRangePicker";
-import ExposeCompaignsAdd from "../../components/ExposeCompaignsAdd";
+import ExposeCompaignsAddMethod from "../../components/ExposeCompaignsAddMethod";
 import { FlexBox } from "../../components/Grid";
 import Search from "../../components/Search";
 import { getCampains } from "../../store/campaigns/selectors";
@@ -24,13 +24,15 @@ const Campaigns: FC = () => {
 
   return (
     <>
-      <ExposeCompaignsAdd />
-      <FlexBox flexDirection="row" justifyContent="space-between">
+      <ExposeCompaignsAddMethod />
+      <FlexBox justifyContent="space-between">
         <DateRange
           startDate={startDate}
           endDate={endDate}
           setStartDate={setStartDate}
           setEndDate={setEndDate}
+          startPlaceholder="Starts from"
+          endPlaceholder="Ends at"
         />
         <Search setSearch={setSearch} />
       </FlexBox>
