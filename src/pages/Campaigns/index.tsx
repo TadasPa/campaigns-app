@@ -31,10 +31,10 @@ const Campaigns: FC = () => {
           endDate={endDate}
           setStartDate={setStartDate}
           setEndDate={setEndDate}
-          startPlaceholder="Starts from"
-          endPlaceholder="Ends at"
+          startPlaceholder="Starts"
+          endPlaceholder="Ends"
         />
-        <Search setSearch={setSearch} />
+        <Search search={search} setSearch={setSearch} placeholder="Search by name" />
       </FlexBox>
       <FlexBox flexDirection="column">{rows}</FlexBox>
     </>

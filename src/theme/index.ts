@@ -1,11 +1,12 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from "styled-components";
 
-import space from './space';
-import { fonts } from './typography';
+import space from "./space";
+import { fonts, textStyles } from "./typography";
 
-const theme: DefaultTheme = {
+const theme: Partial<DefaultTheme> = {
   space,
-  fonts
+  fonts,
+  textStyles,
 };
 
 export default theme;

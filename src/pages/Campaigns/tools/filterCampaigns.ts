@@ -24,8 +24,8 @@ const isDateInRange = (date: string, from: string, to: string) => {
     return true;
 };
 
-const isSearchMatching = (name: string, search: string) => { 
-    return name.includes(search.trim());
+const isSearchMatching = (name: string = '', search: string = '') => { 
+    return name.toLowerCase().includes(search.toLowerCase().trim());
 };
 
 export const filterCampaigns = ({ startDate: from = '', endDate: to = '', search = '', campaigns = [] }: IFilterCampaigns): Campaign[] => {     

@@ -3,8 +3,8 @@ import ReactDatePicker from "react-datepicker";
 import { ISetCallback } from "../../types";
 
 import "react-datepicker/dist/react-datepicker.css";
-import styled from "styled-components";
-import { fontStyle, space, SpaceProps } from "styled-system";
+import styled, { css } from "styled-components";
+import { space, SpaceProps } from "styled-system";
 
 export interface IDatePicker extends SpaceProps {
   selected?: Date;
@@ -29,8 +29,12 @@ const DatePicker = ({
 
 const StyledDatePicker = styled(DatePicker)`
   padding: 5px;
-  font-family: ${({ theme: { fonts } }) => fonts.default};
-  font-size: 12px;
+
+  ${({ theme: { textStyles: { small } } })=>css`
+    font-family: ${small.fontFamily};
+    font-size: ${small.fontSize};
+    line-height: ${small.lineHeight};
+  `}
 
   ${space}
 `;

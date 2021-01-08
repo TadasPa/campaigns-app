@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { fonts } from "./typography";
+import { fonts, textStyles } from "./typography";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -8,8 +8,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .react-datepicker {
-    font-family: ${fonts.default};
-    font-size: 12px;
+    font-family: ${textStyles.small.fontFamily};
+    font-size: ${textStyles.small.fontSize};
+    line-height: ${textStyles.small.lineHeight};
   }
 `;
 

@@ -5,4 +5,4 @@ const rootReducer = combineReducers({
   campaigns: campaignsReducer,
 })
 
-export default rootReducer
+export default rootReducer;

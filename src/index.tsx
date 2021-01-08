@@ -10,7 +10,7 @@ import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme as any/*not proud, only until theme gets defined fully*/}>
       <GlobalStyle />
       <Provider store={store}>
         <Routes />
