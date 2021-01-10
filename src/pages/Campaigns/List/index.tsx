@@ -1,38 +1,23 @@
 import React, { FC, useMemo } from "react";
 import { Col, Container, Row } from "styled-bootstrap-grid";
-import styled, { css } from "styled-components";
-import { space, SpaceProps } from "styled-system";
+import NoItems from "../../../components/NoItems";
 import Status from "../../../components/Status";
+import { DataCol, HeaderCol } from "../../../components/Table";
 import UserName from "../../../components/UserName";
 import { Campaign } from "../../../types/Campaign";
 import { User } from "../../../types/User";
 
-const HeaderCol = styled.div`
-  ${({ theme: { colors, textStyles } }) => css`
-    padding: 5px;
-    margin-left: 1px;
-    background-color: ${colors.background.blue};
-    color: ${colors.typography.light};
-    font-family: ${textStyles.small.fontFamily};
-    font-size: ${textStyles.small.fontSize};
-    line-height: ${textStyles.small.lineHeight};
-  `}
-`;
-
-const DataCol = styled(HeaderCol)`
-  ${({ theme: { colors } }) => css`
-    background-color: ${colors.background.white};
-    color: ${colors.typography.dark};
-  `}
-`;
-
-interface ICampaignsTable extends SpaceProps {
+interface ICampaignsList {
   campaigns: Campaign[];
   users: User[];
 }
 
-const Table: FC<ICampaignsTable> = ({ campaigns, users, ...rest }) => {
+const List: FC<ICampaignsList> = ({ campaigns, users, ...rest }) => {
   const rows = useMemo(() => {
+    if (!campaigns.length) {
+      return <NoItems>No campaigns suite filter values.</NoItems>;
+    }
+
     return campaigns.map(
       ({ name, startDate, endDate, Budget, userId }, index) => (
         <Row key={index}>
@@ -90,8 +75,4 @@ const Table: FC<ICampaignsTable> = ({ campaigns, users, ...rest }) => {
   );
 };
 
-const StyledTable = styled(Table)<ICampaignsTable>`
-  ${space}
-`;
-
-export default StyledTable;
+export default List;

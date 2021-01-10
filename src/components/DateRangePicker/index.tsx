@@ -31,6 +31,7 @@ export const DateRange: FC<IDateRange> = ({
           setStartDate(value ? formatToShortDate(value) : "");
         }}
         selected={start}
+        maxDate={end}
         placeholder={startPlaceholder}
         mr={12}
       />
@@ -39,6 +40,7 @@ export const DateRange: FC<IDateRange> = ({
           setEndDate(value ? formatToShortDate(value) : "");
         }}
         selected={end}
+        minDate={start}
         placeholder={endPlaceholder}
       />
     </FlexBox>

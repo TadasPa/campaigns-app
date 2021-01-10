@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from "react";
+import React, { ChangeEvent, FC, useCallback } from "react";
 import styled, { css } from "styled-components";
 import { ISetCallback } from "../../types";
 
@@ -9,9 +9,13 @@ interface ISearch {
 }
 
 const Search: FC<ISearch> = ({ search, setSearch, placeholder, ...rest }) => {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    return setSearch(event.target.value);
-  };
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      return setSearch(event.target.value);
+    },
+    [setSearch]
+  );
+
   return (
     <input
       type="text"

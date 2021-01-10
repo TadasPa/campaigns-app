@@ -7,6 +7,7 @@ export enum Color {
 }
 
 export const palette = {
+  error: Color.Amaranth,
   buttons: {
     primary: Color.GovernorBay,
   },

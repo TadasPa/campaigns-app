@@ -5,11 +5,11 @@ import ConsoleAdd from "./Add/ConsoleMethod";
 import Search from "../../components/Search";
 import { getCampains } from "../../store/campaigns/selectors";
 import { filterCampaigns } from "./tools/filterCampaigns";
-import CampaignsTable from "./Table";
+import List from "./List";
 import { Container } from "styled-bootstrap-grid";
 import { FlexBox } from "../../components/Grid";
 import NoItems from "../../components/NoItems";
-import AddButton from "./Add";
+import Add from "./Add";
 
 const Campaigns: FC = () => {
   const [startDate, setStartDate] = useState<string>("");
@@ -42,7 +42,7 @@ const Campaigns: FC = () => {
           />
         </FlexBox>
         <FlexBox justifyContent="flex-start" py="15">
-          <AddButton />
+          <Add />
         </FlexBox>
       </Container>
 
@@ -51,7 +51,7 @@ const Campaigns: FC = () => {
           No campaigns added yet, please use console method or press add button.
         </NoItems>
       ) : (
-        <CampaignsTable campaigns={filteredCampaigns} users={[]} />
+        <List campaigns={filteredCampaigns} users={[]} />
       )}
     </>
   );

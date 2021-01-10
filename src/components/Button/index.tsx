@@ -1,34 +1,33 @@
-import React, { FC } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import styled from "styled-components";
 import { space, SpaceProps } from "styled-system";
 
-interface IAddButton extends SpaceProps {
-  onAdd: () => void;
-}
+type IButton = SpaceProps & HTMLAttributes<HTMLButtonElement>;
 
-const AddButton: FC<IAddButton> = ({ onAdd, ...rest }) => {
+const Button: FC<IButton> = ({ onClick, children, ...rest }) => {
   return (
-    <button onClick={onAdd} {...rest}>
-      Add campaigns
+    <button onClick={onClick} {...rest}>
+      {children}
     </button>
   );
 };
 
-const StyledAddButton = styled(AddButton)<IAddButton>`
+const StyledButton = styled(Button)<IButton>`
   padding: 7px;
   width: 300px;
-  border-radius: 5px;
+  border: 0;
+  border-radius: 3px;
   background-color: ${({ theme: { colors } }) => colors.buttons.primary};
   color: ${({ theme: { colors } }) => colors.typography.light};
   font-family: ${({ theme: { textStyles } }) => textStyles.small.fontFamily};
   font-size: ${({ theme: { textStyles } }) => textStyles.small.fontSize};
   line-height: ${({ theme: { textStyles } }) => textStyles.small.lineHeight};
 
-  & :hover {
+  &:hover {
     cursor: pointer;
   }
 
   ${space};
 `;
 
-export default StyledAddButton;
+export default StyledButton;
