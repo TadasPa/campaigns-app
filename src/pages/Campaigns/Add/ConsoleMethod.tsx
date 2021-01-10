@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { AnyAction } from "../../store";
-import { CampaignActionType } from "../../store/campaigns/reducer";
-import { Campaign } from "../../types/Campaign";
+import { AnyAction } from "../../../store";
+import { CampaignActionType } from "../../../store/campaigns/reducer";
+import { Campaign } from "../../../types/Campaign";
 
-const ExposeCompaignsAddMethod: FC = () => {
+const ConsoleMethod: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     window.AddCampaigns = (campaigns: Campaign[] = []) => {
@@ -18,4 +18,4 @@ const ExposeCompaignsAddMethod: FC = () => {
   return null;
 };
 
-export default ExposeCompaignsAddMethod;
+export default ConsoleMethod;

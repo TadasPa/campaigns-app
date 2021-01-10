@@ -8,23 +8,33 @@ interface ISearch {
   placeholder?: string;
 }
 
-const Search: FC<ISearch> = ({ search, setSearch, placeholder, ...rest }) =>
-{
+const Search: FC<ISearch> = ({ search, setSearch, placeholder, ...rest }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    return setSearch(event.target.value)
+    return setSearch(event.target.value);
   };
-  return (<input type="text" placeholder={placeholder} value={search} onChange={handleChange} {...rest} />);
+  return (
+    <input
+      type="text"
+      placeholder={placeholder}
+      value={search}
+      onChange={handleChange}
+      {...rest}
+    />
+  );
 };
 
-const StyledSearch = styled(Search) <ISearch>`
+const StyledSearch = styled(Search)<ISearch>`
   padding: 5px;
 
-  ${({ theme: { textStyles: { small } } })=>css`
+  ${({
+    theme: {
+      textStyles: { small },
+    },
+  }) => css`
     font-family: ${small.fontFamily};
     font-size: ${small.fontSize};
     line-height: ${small.lineHeight};
   `}
-  
-`
+`;
 
 export default StyledSearch;

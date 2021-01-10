@@ -10,3 +10,7 @@ export const FlexBox = styled.div<IFlexBox>`
   ${space};
   ${flexbox};
 `;
+
+export const FlexCol = styled(FlexBox)`
+  flex-direction: column;
+`;
