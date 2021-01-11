@@ -2,7 +2,7 @@ import { AnyAction } from "..";
 import { Campaign } from "../../types/Campaign";
 
 export enum CampaignActionType {
-  Add = 'ADD_CAMPAIGNS',
+  Add = "ADD_CAMPAIGNS",
 }
 
 const initialState: Campaign[] = [];

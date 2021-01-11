@@ -1,12 +1,31 @@
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk, { ThunkAction } from "redux-thunk";
 import rootReducer from "./rootReducer";
-import { devToolsEnhancer } from 'redux-devtools-extension/developmentOnly';
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+import { Campaign } from "../types/Campaign";
+import { User } from "../types/User";
 
-export interface AnyAction<T, P> { 
-    type: T;
-    payload: P;
+export interface AnyAction<T, P> {
+  type: T;
+  payload: P;
 }
 
-const store = createStore(rootReducer, devToolsEnhancer({ trace: true, traceLimit: 25 }))
+export interface FetchState<R> {
+  fetched: boolean;
+  fetching: boolean;
+  result: R;
+}
+
+export interface State {
+  campaigns: Campaign[];
+  users: FetchState<User[]>;
+}
+
+const composeEnhancers = composeWithDevTools({ trace: true, traceLimit: 25 });
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 export default store;

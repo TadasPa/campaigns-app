@@ -1,6 +1,7 @@
 export enum Color {
   White = "#FFFFFF",
   Woodsmoke = "#050606",
+  Mischka = "#dcdee6",
   GovernorBay = "#3149b9",
   Amaranth = "#e91e63",
   FruitSalad = "#4caf50",
@@ -21,6 +22,7 @@ export const palette = {
   },
   background: {
     white: Color.White,
+    gray: Color.Mischka,
     blue: Color.GovernorBay,
   },
 };

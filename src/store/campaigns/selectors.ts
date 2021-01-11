@@ -1,7 +1,3 @@
-import { Campaign } from "../../types/Campaign";
+import { State } from "..";
 
-interface CampaignsStateChunk { 
-    campaigns: Campaign[];
-}
-
-export const getCampains = ({ campaigns }: CampaignsStateChunk) => campaigns;
+export const getCampains = ({ campaigns }: State) => campaigns;
