@@ -6,7 +6,7 @@ type IButton = SpaceProps & HTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<IButton> = ({ onClick, children, ...rest }) => {
   return (
-    <button onClick={onClick} {...rest}>
+    <button data-testid="button-component" onClick={onClick} {...rest}>
       {children}
     </button>
   );

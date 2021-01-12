@@ -1,8 +1,8 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { AnyAction } from "../../../store";
-import { CampaignActionType } from "../../../store/campaigns/reducer";
-import { Campaign } from "../../../types/Campaign";
+import { AnyAction } from "../../../../store";
+import { CampaignActionType } from "../../../../store/campaigns/reducer";
+import { Campaign } from "../../../../types/Campaign";
 
 const ConsoleMethod: FC = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore } from "redux";
-import thunk, { ThunkAction } from "redux-thunk";
+import thunk from "redux-thunk";
 import rootReducer from "./rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import { Campaign } from "../types/Campaign";

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button machtes snapshot 1`] = `
+.c0 {
+  padding: 7px;
+  width: 300px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #3149b9;
+  color: #FFFFFF;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.c0:hover {
+  cursor: pointer;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="button-component"
+  />
+</div>
+`;

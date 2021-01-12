@@ -6,7 +6,7 @@ interface ILoadIndicator {
   isLoading: boolean;
 }
 
-const LoadIndicator: FC<ILoadIndicator> = ({ ...rest }) => (
+const LoadIndicator: FC = ({ ...rest }) => (
   <div className="lds-ring" {...rest}>
     <div></div>
     <div></div>
@@ -56,7 +56,7 @@ const StyledLoadIndicator = styled(LoadIndicator)`
 
 const Container: FC<ILoadIndicator> = ({ isLoading, ...rest }) => (
   <FlexBox {...rest} justifyContent="center" alignItems="center">
-    <StyledLoadIndicator isLoading={isLoading} />
+    <StyledLoadIndicator />
   </FlexBox>
 );
 
